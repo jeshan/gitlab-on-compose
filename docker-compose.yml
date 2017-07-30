@@ -26,4 +26,4 @@ volumes:
 
 # Note:
 # Find your REGISTRATION_TOKEN at http://GITLAB_HOST/$PROJECT_GROUP/$PROJECT_NAME/settings/ci_cd
-# Execute on each runner: gitlab-runner register -n -r $REGISTRATION_TOKEN -u http://gitlab --executor docker --docker-image docker:latest --docker-network-mode gitlaboncompose_default --docker-volumes /var/run/docker.sock:/var/run/docker.sock
+# Execute on each runner: gitlab-runner register -n -r $REGISTRATION_TOKEN -u http://gitlab --executor docker --docker-image docker:latest --docker-network-mode gitlaboncompose_default --docker-privileged
