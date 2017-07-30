@@ -19,7 +19,7 @@ docker exec -it gitlaboncompose_gitlab-runner3_1 gitlab-runner register -n -r $R
 ````
 
 # Notes
-- To change gitlab (and runner) version, edit the VERSION variable in `.env`
+- Current Gitlab version used is 9.4.1. To change gitlab (and runner) version, edit the VERSION variable in `.env`
 
 # Licence
 Released under the simplified BSD licence.
