@@ -1,5 +1,5 @@
 
-# Gitlab-on-docker
+# Gitlab-on-compose
 A painless way to setup gitlab and gitlab docker runners using Docker Compose.
 
 # Usage
