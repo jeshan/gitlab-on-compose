@@ -1,0 +1,29 @@
+
+version: '3.2'
+
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:${VERSION}-ce.0
+    volumes: ["gitlab-config:/etc/gitlab", "gitlab-logs:/var/log/gitlab", "gitlab-data:/var/opt/gitlab"]
+    ports: ["443", "1000:80", "22"]
+  gitlab-runner1:
+    image: gitlab/gitlab-runner:alpine-v${VERSION}
+    volumes: ["gitlab-runner-config1:/etc/gitlab-runner:Z", "/var/run/docker.sock:/var/run/docker.sock"]
+  gitlab-runner2:
+    image: gitlab/gitlab-runner:alpine-v${VERSION}
+    volumes: ["gitlab-runner-config2:/etc/gitlab-runner:Z", "/var/run/docker.sock:/var/run/docker.sock"]
+  gitlab-runner3:
+    image: gitlab/gitlab-runner:alpine-v${VERSION}
+    volumes: ["gitlab-runner-config3:/etc/gitlab-runner:Z", "/var/run/docker.sock:/var/run/docker.sock"]
+
+volumes:
+  gitlab-config:
+  gitlab-logs:
+  gitlab-data:
+  gitlab-runner-config1:
+  gitlab-runner-config2:
+  gitlab-runner-config3:
+
+# Note:
+# Find your REGISTRATION_TOKEN at http://GITLAB_HOST/$PROJECT_GROUP/$PROJECT_NAME/settings/ci_cd
+# Execute on each runner: gitlab-runner register -n -r $REGISTRATION_TOKEN -u http://gitlab --executor docker --docker-image alpine:latest --docker-network-mode gitlaboncompose_default
