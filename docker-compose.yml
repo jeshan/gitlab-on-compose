@@ -8,21 +8,21 @@ services:
     ports: ["443", "1000:80", "22"]
   gitlab-runner1:
     image: gitlab/gitlab-runner:alpine-v${VERSION}
-    volumes: ["gitlab-runner-config1:/etc/gitlab-runner:Z", "/var/run/docker.sock:/var/run/docker.sock"]
+    volumes: ["gitlab-runner1-config:/etc/gitlab-runner:Z", "/var/run/docker.sock:/var/run/docker.sock"]
   gitlab-runner2:
     image: gitlab/gitlab-runner:alpine-v${VERSION}
-    volumes: ["gitlab-runner-config2:/etc/gitlab-runner:Z", "/var/run/docker.sock:/var/run/docker.sock"]
+    volumes: ["gitlab-runner2-config:/etc/gitlab-runner:Z", "/var/run/docker.sock:/var/run/docker.sock"]
   gitlab-runner3:
     image: gitlab/gitlab-runner:alpine-v${VERSION}
-    volumes: ["gitlab-runner-config3:/etc/gitlab-runner:Z", "/var/run/docker.sock:/var/run/docker.sock"]
+    volumes: ["gitlab-runner3-config:/etc/gitlab-runner:Z", "/var/run/docker.sock:/var/run/docker.sock"]
 
 volumes:
   gitlab-config:
   gitlab-logs:
   gitlab-data:
-  gitlab-runner-config1:
-  gitlab-runner-config2:
-  gitlab-runner-config3:
+  gitlab-runner1-config:
+  gitlab-runner2-config:
+  gitlab-runner3-config:
 
 # Note:
 # Find your REGISTRATION_TOKEN at http://GITLAB_HOST/$PROJECT_GROUP/$PROJECT_NAME/settings/ci_cd
