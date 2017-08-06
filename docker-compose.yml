@@ -23,7 +23,3 @@ volumes:
   gitlab-runner1-config:
   gitlab-runner2-config:
   gitlab-runner3-config:
-
-# Note:
-# Find your REGISTRATION_TOKEN at http://GITLAB_HOST/$PROJECT_GROUP/$PROJECT_NAME/settings/ci_cd
-# Execute on each runner: gitlab-runner register -n -r $REGISTRATION_TOKEN -u http://gitlab --executor docker --docker-image docker:latest --docker-network-mode gitlaboncompose_default --docker-privileged
