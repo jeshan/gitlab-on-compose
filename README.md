@@ -13,9 +13,9 @@ A painless way to setup gitlab and gitlab docker runners using Docker Compose.
 The script to be run will be something like:
 ````
 REGISTRATION_TOKEN=FILL_ME_IN
-docker exec -it gitlaboncompose_gitlab-runner1_1 gitlab-runner register -n -r $REGISTRATION_TOKEN -u http://gitlab --executor docker --docker-image docker:latest --docker-network-mode gitlaboncompose_default --docker-privileged 
-docker exec -it gitlaboncompose_gitlab-runner2_1 gitlab-runner register -n -r $REGISTRATION_TOKEN -u http://gitlab --executor docker --docker-image docker:latest --docker-network-mode gitlaboncompose_default --docker-privileged 
-docker exec -it gitlaboncompose_gitlab-runner3_1 gitlab-runner register -n -r $REGISTRATION_TOKEN -u http://gitlab --executor docker --docker-image docker:latest --docker-network-mode gitlaboncompose_default --docker-privileged 
+docker exec -it gitlaboncompose_gitlab-runner1_1 gitlab-runner register -n -r $REGISTRATION_TOKEN -u http://gitlab --executor docker --docker-image docker:latest --docker-network-mode gitlaboncompose_default  --docker-volumes "/var/run/docker.sock:/var/run/docker.sock"
+docker exec -it gitlaboncompose_gitlab-runner2_1 gitlab-runner register -n -r $REGISTRATION_TOKEN -u http://gitlab --executor docker --docker-image docker:latest --docker-network-mode gitlaboncompose_default  --docker-volumes "/var/run/docker.sock:/var/run/docker.sock"
+docker exec -it gitlaboncompose_gitlab-runner3_1 gitlab-runner register -n -r $REGISTRATION_TOKEN -u http://gitlab --executor docker --docker-image docker:latest --docker-network-mode gitlaboncompose_default  --docker-volumes "/var/run/docker.sock:/var/run/docker.sock"
 ````
 
 # Notes
