@@ -4,8 +4,9 @@ version: '3.2'
 services:
   gitlab:
     image: gitlab/gitlab-ce:${VERSION}-ce.0
+    hostname: gitlab
     volumes: ["gitlab-config:/etc/gitlab", "gitlab-logs:/var/log/gitlab", "gitlab-data:/var/opt/gitlab"]
-    ports: ["443", "1000:80", "22"]
+    ports: ["443", "1000:80", "22", "4567:4567"]
   gitlab-runner1:
     image: gitlab/gitlab-runner:alpine-v${VERSION}
     volumes: ["gitlab-runner1-config:/etc/gitlab-runner:Z", "/var/run/docker.sock:/var/run/docker.sock"]
